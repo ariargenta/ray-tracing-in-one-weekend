@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    std::clog << "\rDone. \n";
+    std::clog << "\rDone.        \n";
 
     return EXIT_SUCCESS;
 }
