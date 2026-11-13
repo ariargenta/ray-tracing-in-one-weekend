@@ -2,7 +2,6 @@
 #define SPHERE_H
 
 #include "hittable.h"
-#include "vec3.h"
 
 class sphere : public hittable {
     public:
@@ -36,7 +35,7 @@ class sphere : public hittable {
             if(root <= ray_tmin || ray_tmax <= root) {
                 root = (h + sqrtd) / a;
 
-                if(root <= ray_t_min || ray_tmax <= root) {
+                if(root <= ray_tmin || ray_tmax <= root) {
                     return false;
                 }
             }
