@@ -38,11 +38,11 @@ class camera {
         }
 
     private:
-        int image_height;
-        point3 center;
-        point3 pixel00_loc;
-        vec3 pixel_delta_u;
-        vec3 pixel_delta_v;
+        int image_height;   // Rendered image height
+        point3 center;  // Camera center
+        point3 pixel00_loc; // Location of pixel 0, 0
+        vec3 pixel_delta_u; // Offset to pixel to the right
+        vec3 pixel_delta_v; // Offset to pixel below
 
         void initialize() {
             image_height = int(image_width / aspect_ratio);
