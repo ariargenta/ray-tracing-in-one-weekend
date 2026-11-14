@@ -9,7 +9,9 @@ class sphere : public hittable {
             const point3& center
             , double radius) : center(center)
             , radius(std::fmax(0, radius)
-        ) {}
+        ) {
+            // TODO: Initialise the material pointer `mat`
+        }
 
         bool hit(
                 const ray& r
@@ -41,10 +43,10 @@ class sphere : public hittable {
 
             rec.t = root;
             rec.p = r.at(rec.t);
-
             vec3 outward_normal = (rec.p - center) / radius;
 
             rec.set_face_normal(r, outward_normal);
+            rec.mat = mat;
 
             return true;
         }
@@ -52,6 +54,7 @@ class sphere : public hittable {
     private:
         point3 center;
         double radius;
+        shared_ptr<material> mat;
 };
 
 #endif
