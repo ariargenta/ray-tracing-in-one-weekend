@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
         color(0.1, 0.2, 0.5)
     );
 
-    auto material_left = make_shared<dielectric>( 1.50);
+    auto material_left = make_shared<dielectric>( 1.50 / 1.33);
 
     auto material_right = make_shared<metal>(
         color(0.8, 0.6, 0.2)
