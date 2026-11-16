@@ -15,7 +15,12 @@ class camera {
         void render(const hittable& world) {
             initialize();
 
-            std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+            std::cout
+                << "P3\n"
+                << image_width
+                << ' '
+                << image_height
+                << "\n255\n";
 
             for(int j = 0; j < image_height; ++j) {
                 std::clog
@@ -63,11 +68,15 @@ class camera {
             auto viewport_width = viewport_height
                 * (double(image_width) / image_height);
 
-            // Calculate vectors across the horizontal and down the vertical viewport edges
+            /* Calculate vectors across the horizontal and down the vertical
+             * viewport edges
+             */
             auto viewport_u = vec3(viewport_width, 0, 0);
             auto viewport_v = vec3(0, -viewport_height, 0);
 
-            // Calculate the horizontal and vertical delta vectors from pixel to pixel
+            /* Calculate the horizontal and vertical delta vectors from pixel
+             * to pixel
+             */
             pixel_delta_u = viewport_u / image_width;
             pixel_delta_v = viewport_v / image_height;
 
@@ -96,7 +105,9 @@ class camera {
         }
 
         vec3 sample_square() const {
-            // Returns the vector to a random point in the [-0.5, -0.5] - [+0.5, +0.5] unit square
+            /* Returns the vector to a random point in the
+             * [-0.5, -0.5] - [+0.5, +0.5] unit square
+             */
             return vec3(random_double() - 0.5, random_double() - 0.5, 0);
         }
 
@@ -107,7 +118,13 @@ class camera {
 
             hit_record rec;
 
-            if(world.hit(r, interval(0.001, infinity), rec)) {
+            if(
+                    world.hit(
+                        r
+                        , interval(0.001, infinity)
+                        , rec
+                    )
+            ) {
                 ray scattered;
                 color attenuation;
 
