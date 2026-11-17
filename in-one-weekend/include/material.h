@@ -114,7 +114,7 @@ class dielectric : public material {
          */
         double refraction_index;
 
-        static double relectance(double cosine, double refraction_index) {
+        static double reflectance(double cosine, double refraction_index) {
             // Use Schlick's approximation for reflectance
             auto r0 = (1 - refraction_index) / (1 + refraction_index);
 
