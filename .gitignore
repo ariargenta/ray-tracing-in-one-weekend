@@ -69,7 +69,6 @@ tmp/
 lib/
 obj/
 runTests
-out/
 Debug/
 Release/
 
